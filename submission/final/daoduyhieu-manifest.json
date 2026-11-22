@@ -3,13 +3,13 @@
   "format": "CVAT for images 1.1",
   "guideline": "Road v1.0",
   "name": "daoduyhieu",
-  "revision": 1,
-  "created_at": "2026-11-21T04:50:25+00:00",
+  "revision": 2,
+  "created_at": "2026-11-22T00:51:18+00:00",
   "files": [
     {
       "file": "daoduyhieu-front.zip",
-      "bytes": 10578,
-      "sha256": "9ffdc4d74c3f9c0d9d7546bb4f8f9ee318a34ddc0aa76c85828b5878e41dd843",
+      "bytes": 10538,
+      "sha256": "c265f1eccd3daf6284df5ed4cb0a458dc4ac31b2da56210ff8715db1b9c120e4",
       "contains_images": false,
       "images": 16,
       "images_unlabelled": 0,
@@ -17,7 +17,7 @@
       "shapes_by_label": {
         "crosswalk": 9,
         "drivable": 37,
-        "lane": 49,
+        "lane": 48,
         "road_curb": 7,
         "traffic_light": 30,
         "traffic_sign": 17
@@ -43,7 +43,7 @@
   ],
   "lint": {
     "nặng": 6,
-    "chính": 6,
+    "chính": 1,
     "nhẹ": 0
   },
   "note": "Tạo bởi road_check lint. Mô tả file đã gửi, không phải kết luận chất lượng."

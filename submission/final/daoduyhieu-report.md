@@ -4,8 +4,8 @@ Họ tên: Đào Duy Hiếu
 Mã học viên: 2A202603235  
 Phiên bản CVAT (Help → About): 2.82.0 (môi trường lab)  
 Guideline: Road v1.0  
-Lần nộp (`revision` trong manifest): 1  
-Thời điểm export: 21/11/2026 10:45 (Asia/Saigon)  
+Lần nộp (`revision` trong manifest): 2  
+Thời điểm export: 22/11/2026 07:42 (Asia/Saigon; bản front mới nhất)  
 Số lần nộp lại sau Rework: 1
 
 ## 1. Kiểm project
@@ -23,7 +23,7 @@ Cách đặt tag ảnh trên bản CVAT này: chọn công cụ Tag, chọn labe
 
 | Task | Ảnh | lane | road_curb | crosswalk | drivable | traffic_light | traffic_sign |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| front | 12 | 37 | 4 | 5 | 26 | 25 | 9 |
+| front | 12 | 36 | 4 | 5 | 26 | 25 | 9 |
 | front-extra (đã làm 4 / 4) | 4 | 12 | 3 | 4 | 11 | 5 | 8 |
 | fisheye | 8 | 7 | 7 | 6 | 11 | 2 | 5 |
 | fisheye-extra (đã làm 4 / 4) | 4 | 0 | 0 | 4 | 4 | 0 | 0 |
@@ -33,8 +33,14 @@ Cách đặt tag ảnh trên bản CVAT này: chọn công cụ Tag, chọn labe
 | Ảnh | Nhãn | Phân vân giữa | Đã chọn | Lý do |
 | --- | --- | --- | --- | --- |
 | A05 | lane | Thiếu L1/R1 hay không có vạch nhìn thấy | Không vẽ lane | Ảnh không có vạch sơn L1/R1 rõ; không vẽ tưởng tượng. |
+| A06 | lane | Thiếu L1/R1 hay biên không liên tục tại giao lộ | Không bổ sung L1/R1 | Đã kiểm tra trực quan nhưng không thấy vạch L1/R1 đủ rõ để gán. |
 | A07 | biên trái | lane L1 hay road_curb sát barrier | lane L1 | Có biên sơn trắng nhìn thấy dọc barrier. |
+| A08 | lane L1 | Hai polyline độc lập hay một vạch bị tách/trùng | Giữ để chờ đối chiếu | Lint cảnh báo cùng position L1; cần coach/GT xác nhận trước khi gộp hoặc xóa. |
+| A09 | lane | Thiếu R1 hay biên phải không phải vạch lane | Không bổ sung R1 | Đã kiểm tra trực quan nhưng không thấy vạch R1 đủ rõ để gán. |
+| A14 | lane | Thiếu R1 ở ảnh extra | Không bổ sung R1 | Đã kiểm tra trực quan nhưng không thấy vạch R1 đủ rõ để gán. |
 | B07–B08 | lane | Đoạn thẳng ít điểm hay polyline theo cung | Polyline nhiều điểm, position=other | Camera hai bên; guideline yêu cầu bám cung và dùng position=other. |
+
+**Ghi chú cảnh báo QC1-02:** Đã kiểm tra lại trực quan A05, A06, A09 và A14. Không thấy các vạch làn tương ứng (A05: L1/R1; A06: L1/R1; A09: R1; A14: R1) đủ rõ trong ảnh nên không thể gán mà không suy đoán; vì vậy giữ nguyên nhãn thay vì tự vẽ thêm vạch không nhìn thấy.
 
 ## 4. Phiếu QC 1 nhận được
 
